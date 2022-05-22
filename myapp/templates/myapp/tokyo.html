@@ -1,0 +1,37 @@
+{% load poll_extras %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    {% load static %}
+    <link type="text/css" href="{% static 'myapp/css/tokyo.css' %}"  rel = "stylesheet"  />
+</head>
+<body>
+    {{% show_categories %}
+
+    <div class="page2">
+        <h1>Tokyo Game Medals</h1>
+        <table class="table table-striped table-hover">
+            {% getcats as inf2 %}
+            {% for r in inf2 %}
+            <tr>
+                <th>
+                    {{r.fullname}}
+                </th>
+                <th>{{r.sport}}</th>
+                <th>{{r.category}}</th>
+                <th>{{r.medal}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
